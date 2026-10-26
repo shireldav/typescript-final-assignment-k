@@ -22,7 +22,7 @@ export function getHeaders(hasBody: boolean): Record<string, string> {
 }
 
 //general request function & the only place that uses fetch
-export async function request<T>(path: string, method = "GET", body?: null): Promise<ApiResponse<T>> {
+export async function request<T>(path: string, method = "GET", body?: unknown): Promise<ApiResponse<T>> {
   try {
     const response = await fetch(`${API_URL}${path}`,
       {
@@ -34,7 +34,7 @@ export async function request<T>(path: string, method = "GET", body?: null): Pro
     const result: ApiResponse<T> = await response.json();
     return result;
   } catch {
-    // the server is down, or no internet
+    //the server is down, or no internet
      return { success: false, error: "Could not reach the server, please try again" };
     }
 }
