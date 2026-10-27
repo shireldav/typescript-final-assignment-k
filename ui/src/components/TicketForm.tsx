@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ChangeEvent, SubmitEvent } from "react";
+import type { ChangeEvent, SubmitEvent, SyntheticEvent } from "react";
 import ErrorMessage from "./ErrorMessage";
 import { categories, isCategory, isPriority, priorities } from "../types/ticket";
 import type { CreateTicketInput, TicketFormErrors, TicketFormState } from "../types/ticket";
@@ -93,7 +93,7 @@ export default function TicketForm({ onSend }: TicketFormProps) {
         </label>
 
         <label className="block">
-          Phone
+          Phone Number
           <input name="phone" type="tel" value={form.phone} onChange={onChange} className={inputClass} />
           {errors.phone && <p className={errorClass}>{errors.phone}</p>}
         </label>

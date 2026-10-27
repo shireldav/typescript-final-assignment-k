@@ -15,12 +15,12 @@ export default function CreateTicket() {
       return response.error; 
     }
     //we go to the confirmation page ONLY after the server saved the ticket
-    // state-> passing the ticket number to the next page
+    //state-> passing the ticket number to the next page
     nav("/confirmation", { state: { ticketId: response.data.id } });
     return null;
   };
 
-  
+
   return (
     <section className="rounded border border-slate-200 bg-white p-6">
       <h1 className="text-2xl font-bold">Open a support ticket</h1>

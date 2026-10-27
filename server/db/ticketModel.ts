@@ -21,7 +21,7 @@ export const TicketModel = mongoose.model<TicketDocument>("tickets", schema);
 //body validation for creating a ticket
 export const validTicket = (_reqBody: unknown) => {
   const joiSchema = Joi.object<CreateTicketInput>({
-    customerName: Joi.string().trim().min(2).max(100).required().label("Full name"), //trim() removes spaces, so "   " is not valid
+    customerName: Joi.string().trim().min(2).max(100).required().label("Full Name"), //trim() removes spaces, so "   " is not valid
     email: Joi.string().trim().min(2).max(100).email().required().label("Email"),
     phone: Joi.string().trim().pattern(/^[0-9+\-\s()]{7,20}$/).required().label("Phone"),
     title: Joi.string().trim().min(3).max(100).required().label("Title"),
